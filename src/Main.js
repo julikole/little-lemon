@@ -2,7 +2,7 @@
 
 const Main = () => {
     return (
-        <main className="main-content">
+        <main id="main-content">
             Main will be here
         </main>
     );

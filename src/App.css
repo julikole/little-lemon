@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?&family=Karla:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap');
 
+/* Main body styles */
 
 * {
   box-sizing: border-box;
@@ -7,38 +8,66 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   margin: 0;
   justify-content: center;
   align-items: center;
 }
 
-.App {
-  text-align: center;
+#header,
+#main-content,
+#footer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: calc(4px + 1.5625vw);
 }
 
-.header {
-  width: 80%;
-  display: flex;
-  flex-direction: row;
+/* Styles for the header and its contents: logo and navbar */
+
+#header {
+  margin-top: 20px;
+  justify-content: stretch;
+}
+
+.header-logo {
+  grid-column: 3 / 5;
+}
+
+.header-logo img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.navbar {
+  grid-column: 6 / 11;
+  margin: auto 0;
+
 }
 
 .navbar ul {
   list-style: none;
-}
-
-.main-content {
-  width: 80%;
-  height: 500px;
-}
-
-.footer {
-  width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  width: 100%;
 }
+
+.navbar ul li a {
+  margin: auto 0.8em;
+  text-decoration: none;
+  color: #48742C;
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9vw;
+  line-height: 23px;
+}
+
+
+/* Styles for main content */
+
+
+/* Styles for the footer elements  */
+
 
 .footer ul {
   list-style: none;

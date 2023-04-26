@@ -3,7 +3,7 @@ import logofooter from "./images/logofooter.png"
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <footer id="footer">
             <div className="footer-logo">
                 <img src={logofooter} width={"80%"} alt="little lemon logo" />
             </div>
