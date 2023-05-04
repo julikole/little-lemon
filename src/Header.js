@@ -4,9 +4,9 @@ import logo from "./images/logo.png"
 
 const Header = () => {
     return (
-        <header className="header">
+        <header id="header">
             <div className="header-logo">
-                <img src={logo} width={"15%"} alt="Little Lemon Logo" />
+                <img src={logo} alt="Little Lemon Logo" />
             </div>
             <Nav></Nav>
         </header>
