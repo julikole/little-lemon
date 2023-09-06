@@ -1,0 +1,25 @@
+{
+	"meals": [
+		{
+			"dish": "Greek Salad",
+			"img": "./images/adam-bartoszewicz-MaqdFCtH8Oo-unsplash.jpg",
+			"idMeal": "52961",
+			"price": "$12.99",
+			"description": "The famous Greek salad of crispy lettuce, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
+		},
+		{
+			"dish": "Bruschetta",
+			"img": "./images/calum-lewis-rPkgYDh2bmo-unsplash.jpg",
+			"idMeal": "52844",
+			"price": "$5.99",
+			"description": "Our bruschetta is made from grilled bread that has been smeared with fresh garlic and seasoned with salt and premium olive oil from Greece."
+		},
+		{
+			"dish": "Lemon Tart",
+			"img": "./images/alex-lvrs-aX_ljOOyWJY-unsplash.jpg",
+			"idMeal": "52838",
+			"price": "$6.50",
+			"description": "Our delicious lemon tart comes straight from Nana’s recipe book, made with lemons from sunny Sicily and our special secret ingredient!"
+		}
+	]
+}

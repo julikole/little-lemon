@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?&family=Karla:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?&family=Karla:wght@400;500;600;700;900&family=Markazi+Text:wght@400;500;600;700;900&display=swap');
 
 /* Main body styles */
 
@@ -13,9 +13,7 @@ body {
   align-items: center;
 }
 
-#header,
-#main-content,
-#footer {
+.column-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: calc(4px + 1.5625vw);
@@ -26,6 +24,7 @@ body {
 #header {
   margin-top: 20px;
   justify-content: stretch;
+  margin-bottom: 20px;
 }
 
 .header-logo {
@@ -38,9 +37,8 @@ body {
 }
 
 .navbar {
-  grid-column: 6 / 11;
+  grid-column: 6 / 12;
   margin: auto 0;
-
 }
 
 .navbar ul {
@@ -54,21 +52,703 @@ body {
 .navbar ul li a {
   margin: auto 0.8em;
   text-decoration: none;
-  color: #48742C;
+  color: #495E57;
   font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 0.9vw;
+  font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
   line-height: 23px;
 }
+
+.navbar ul li a.active {
+  color: #F4CE14;
+}
+
+.navbar ul li:hover {
+  transform: scale(1.1);
+  /* transition: transform 1.5s; */
+  text-decoration: underline;
+}
+
+/* ===== Responsive Navbar styling ============ */
+.navbar>.nav-btn {
+  display: none;
+}
+
+.navbar>#nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .navbar>.nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+
+  .navbar>.nav-btn>label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+
+  .navbar>.nav-btn>label:hover,
+  .navbar #nav-check:checked~.nav-btn>label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar>.nav-btn>label>span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+
+  .navbar>ul {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+
+  .navbar>ul>li>a {
+    display: block;
+    width: 100%;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .navbar>#nav-check:not(:checked)~ul {
+    height: 0px;
+  }
+
+  .navbar>#nav-check:checked~ul {
+    height: 250px;
+    width: 100%;
+    /* height: calc(100vh - 50px); */
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* ===== The end of Responsive Navbar style ============ */
 
 
 /* Styles for main content */
 
+#hero {
+  padding: 35px;
+  background: #495E57;
+  height: minmax(50vh, auto);
+  grid-column: span 12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.hero-content {
+  display: flex;
+  height: minmax(40vh, auto);
+  width: 67vw;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.hero-img {
+  width: 440px;
+  height: 440px;
+  border-radius: 16px;
+  overflow: hidden;
+  transform: translate(0, calc(25px + (80 - 25) * ((100vw - 300px) / (1600 - 300))));
+  /* transform: translate(0, 125px); */
+  flex-shrink: 1;
+}
+
+.hero-img img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.hero-text {
+  padding: 1em;
+  width: 440px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+}
+
+.hero-content p {
+  margin-bottom: 10px;
+}
+
+.restaurant-name {
+  color: #F4CE14;
+  font-family: 'Markazi Text', serif;
+  font-style: medium;
+  font-size: calc(25px + (45 - 25) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.subtitle {
+  font-family: 'Markazi Text', serif;
+  font-style: regular;
+  color: #fff;
+  font-size: calc(22px + (40 - 22) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.description {
+  font-family: Karla, sans-serif;
+  font-style: medium;
+  font-size: calc(16px + (24 - 16) * ((100vw - 300px) / (1600 - 300)));
+  color: #fff;
+}
+
+/* Styles for Specials-section */
+
+#specials {
+  grid-column: 3 / 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.specials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.specials-card {
+  display: flex;
+  flex-direction: column;
+  height: 445px;
+  width: 263px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background-color: #EDEFEE;
+  margin: 2em;
+  justify-content: space-between;
+  font-family: Karla, sans-serif;
+}
+
+.specials-card:hover {
+  transition: all 0.2s ease-out;
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+  top: -4px;
+  border: 1px solid #cccccc;
+  background-color: white;
+}
+
+.dish-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dish-name>* {
+  margin: 10px;
+  padding: 2px;
+}
+
+.dish-name p {
+  font-weight: 900;
+  color: #EE9972;
+}
+
+.dish-description {
+  font-size: calc(16px + (18 - 16) * ((100vw - 300px) / (1600 - 300)));
+  color: #495E57;
+  margin: 10px;
+  padding: 2px;
+}
+
+.delivery {
+  font-size: calc(16px + (18 - 16) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 600;
+  margin: 10px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.dish-image {
+  width: 263px;
+  height: 200px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden;
+}
+
+.dish-image img {
+  object-fit: contain;
+  width: 100%;
+}
+
+/* Styles for reviews/testimonials section */
+
+#testimonials {
+  grid-column: span 12;
+  height: minmax(70vh, auto);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4CE14;
+}
+
+#testimonials h1,
+#specials h1 {
+  font-family: 'Markazi Text', serif;
+  font-style: medium;
+  font-size: calc(22px + (40 - 22) * ((100vw - 300px) / (1600 - 300)));
+  color: black;
+  padding: 1em;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 3em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styles for the Review Card component */
+.card-container {
+  background-color: #fff;
+  box-shadow: 2px 2px 10px grey;
+  border-radius: 16px;
+  display: grid;
+  margin: 1em;
+  gap: 10px;
+  height: 220px;
+  width: 220px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "stars stars stars"
+    "avatar name name"
+    "review review review"
+    "review review review"
+    "review review review"
+}
+
+.card-container:hover {
+  box-shadow: 4px 4px 14px grey;
+  transform: scale(1.01);
+}
+
+.stars {
+  grid-area: stars;
+  font-size: 1.7em;
+  margin: auto;
+}
+
+.avatar {
+  grid-area: avatar;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.avatar img {
+  object-fit: contain;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 2px 2px 10px grey;
+}
+
+.reviewer-name {
+  grid-area: name;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: left;
+  font-family: Karla;
+}
+
+.review {
+  grid-area: review;
+  font-family: Karla, sans-serif;
+  padding: 5px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  height: 2.7em;
+}
+
+/* Styles for About-section */
+
+#about {
+  grid-column: 3 / 11;
+  display: flex;
+  height: minmax(100vh, auto);
+  width: 67vw;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about-content {
+  display: flex;
+  height: minmax(70vh, auto);
+  width: 67vw;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about-text>* {
+  color: black;
+}
+
+.about-text {
+  padding: 1em;
+  width: 440px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+}
+
+.about-text p {
+  font-size: calc(16px + (24 - 16) * ((100vw - 300px) / (1600 - 300)));
+  text-align: justify;
+  margin-top: 15px;
+}
+
+.about-images {
+  width: 440px;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.image-top {
+  grid-row: 1;
+  grid-column: 1 / span 8;
+  padding-top: 20%;
+  z-index: 1;
+}
+
+.image-bottom {
+  grid-column: 4 / -1;
+  grid-row: 1;
+}
+
+.image-top img,
+.image-bottom img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+.image-top img:hover,
+.image-bottom img:hover {
+  transition: all 0.2s ease-out;
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+  top: -4px;
+  border: 1px solid #cccccc;
+}
 
 /* Styles for the footer elements  */
+#footer {
+  margin-top: 20px;
+  background-color: #EDEFEE;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
 
+.footer-logo {
+  grid-column: 3 / 5;
+}
 
-.footer ul {
+.footer-menu {
+  grid-column: 5 / 8;
+}
+
+.footer-menu ul {
   list-style: none;
+}
+
+.footer-menu ul li {
+  padding: 5px;
+  transform: translate(-35px, 0);
+}
+
+.footer-menu ul li a {
+  text-decoration: none;
+  color: #495E57;
+  font-family: Karla, sans-serif;
+  font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.footer-contact {
+  grid-column: 8 / 11;
+}
+
+.footer-contact p {
+  color: #495E57;
+  padding: 10px;
+  font-family: Karla, sans-serif;
+  font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1600 - 300)));
+}
+
+#footer h3 {
+  color: #495E57;
+  font-family: Karla, sans-serif;
+  font-size: calc(14px + (20 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 900;
+  padding-left: 10px;
+}
+
+/* Styles for smaller screens */
+@media screen and (max-width: 500px) {
+
+  .footer-logo,
+  .footer-menu,
+  .footer-contact {
+    grid-column: 3 / 11;
+  }
+
+  .hero-img {
+    width: auto;
+    height: calc(250px + (440 - 250) * ((100vw - 300px) / (1600 - 300)));
+  }
+
+  #testimonials {
+    grid-column: 2 / 12;
+  }
+
+  #main-content .booking-container {
+    grid-column: 2 / 12;
+  }
+
+  #booking-form .overlay {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .card-container {
+    width: 180px;
+    height: 180px;
+  }
+
+}
+
+/* Styles for booking page */
+
+.booking-container {
+  grid-column: 3 / 11;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #495E57;
+}
+
+.booking-container h1 {
+  font-family: 'Markazi Text', serif;
+  font-style: medium;
+  font-size: calc(22px + (40 - 22) * ((100vw - 300px) / (1600 - 300)));
+  color: white;
+  padding: 0.2em;
+  text-align: center;
+  margin: 5px auto;
+}
+
+#booking-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  gap: 20px;
+  justify-content: center;
+}
+
+.left-container,
+.right-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  gap: 10px;
+  align-items: center;
+}
+
+label {
+  font-family: Karla, sans-serif;
+  color: white;
+}
+
+input,
+select {
+  height: 34px;
+  width: 200px;
+  border-radius: 8px;
+  border: none;
+  margin-left: 5px;
+  border-color: #495E57;
+  outline: none;
+  padding: 5px;
+}
+
+input:focus,
+select:focus {
+  border: none;
+  background-color: rgb(218, 218, 218);
+}
+
+input[type="button"],
+input[type="submit"] {
+  background-color: #F4CE14;
+  border: none;
+  font-family: Karla, sans-serif;
+  font-weight: 900;
+  font-size: 23px;
+  padding: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #EE9972;
+}
+
+input[type="submit"][disabled] {
+  pointer-events: none;
+}
+
+input[type="date"],
+input[type="number"] {
+  color: #495E57;
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+}
+
+::-webkit-calendar-picker-indicator {
+  color: #495E57;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23495E57" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>')
+}
+
+textarea {
+  width: 200px;
+  height: 110px;
+  border-radius: 8px;
+  margin-left: 5px;
+  border: none;
+  border-color: #495E57;
+  outline: none;
+  padding: 5px;
+  font-family: Karla, sans-serif;
+  color: #495E57;
+}
+
+textarea:focus {
+  border: none;
+  background-color: rgb(218, 218, 218);
+}
+
+::placeholder {
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+}
+
+select,
+option {
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+  border: none;
+  color: #495E57;
+}
+
+option:checked {
+  background-color: #495E57;
+  color: white;
+}
+
+.overlay {
+  z-index: 20;
+  width: calc(250px + (500 - 250) * ((100vw - 300px) / (1600 - 300)));
+  height: 350px;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background-color: white;
+  position: absolute;
+  display: flex;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.overlay-content h2 {
+  padding: 5px;
+  font-family: 'Markazi text', serif;
+  font-size: calc(16px + (24 - 16) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.overlay-content p {
+  margin: 5px;
+  padding: 5px;
+  font-family: Karla, sans-serif;
+  font-size: calc(12px + (16 - 12) * ((100vw - 300px) / (1600 - 300)));
+}
+
+span {
+  color: #EE9972;
+}
+
+.close-button {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.column-1 {
+  font-weight: 900;
+  text-align: right;
+  grid-column: 1;
+}
+
+.column-2 {
+  text-align: left;
+  grid-column: 2;
 }

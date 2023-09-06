@@ -1,16 +1,14 @@
-// import { Link } from 'react-router-dom';
 import Nav from "./Nav";
-import logo from "./images/logo.png"
 
 const Header = () => {
-    return (
-        <header id="header">
-            <div className="header-logo">
-                <img src={logo} alt="Little Lemon Logo" />
-            </div>
-            <Nav></Nav>
-        </header>
-    );
+	return (
+		<header id="header" className="column-grid">
+			<div className="header-logo">
+				<img src='images/logo.png' alt="Little Lemon Logo" />
+			</div>
+			<Nav />
+		</header>
+	);
 }
 
 export default Header;

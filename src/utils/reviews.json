@@ -1,0 +1,37 @@
+{
+    "reviews": [
+        {
+            "id": "a1",
+            "review": "The waiting staff were excellent and the wine and food on par. A very nice experience."
+        },
+        {
+            "id": "b2",
+            "review": "Excellent food, service and place! I can recommend the 13 dishes menu! I will come back soon for new experience :)"
+        },
+        {
+            "id": "c3",
+            "review": "Brilliant food (and in vast quantities for the taster menu, so eat light earlier in the day!). Attentive, professional and friendly service."
+        },
+        {
+            "id": "d4",
+            "review": "This is our second visit. This time none of the dishes were too salty. So we were very satisfied with our experience"
+        },
+        {
+            "id": "e5",
+            "review": "Nice and good value tasting menu. Nice ambience, good service and good food."
+        },
+        {
+            "id": "f6",
+            "review": "Went for the tasting menu with wine pairing. OK food - but great service! "
+        },
+        {
+            "id": "g7",
+            "review": "Marco and Luca constantly work on improving their menu, and it really shows! Each time I eat there, I always want to come back!"
+        },
+        {
+            "id": "h8",
+            "review": "This restaurant is a blast!"
+        }
+
+    ]
+}
